@@ -7,7 +7,6 @@ export default class FireBaseResponseToUserEntity extends Mapper {
   }
 
   map = async response => {
-    const qrCode = await this._qrGeneratorService.generateQr(response.id)
-    return this._userEntity({...response, qr: qrCode})
+    return this._userEntity({...response})
   }
 }

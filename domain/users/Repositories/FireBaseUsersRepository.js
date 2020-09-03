@@ -6,8 +6,6 @@ export default class FireBaseUsersRepository extends UsersRepository {
 
     this._config = config
     this._userMapper = userMapper
-    this._qrGenerator = qrGenerator
-    this._qrCodeValueObject = qrCodeValueObject
   }
 
   async current() {
@@ -18,27 +16,14 @@ export default class FireBaseUsersRepository extends UsersRepository {
       return false
     }
 
-    const userDB = (await firebase
-      .database()
-      .ref(`/users/${user.uid}`)
-      .once('value')).val()
-    return this._userMapper.map(userDB)
+    return this._userMapper.map({id: user.uid, email: user.email})
   }
 
   async create({email, name, password} = {}) {
     const firebase = this._config.get('firebase')
     await firebase.auth().createUserWithEmailAndPassword(email, password)
     const user = firebase.auth().currentUser
-    await firebase
-      .database()
-      .ref(`/users/${user.uid}`)
-      .set({
-        email,
-        name,
-        id: user.uid
-      })
-
-    return this._userMapper.map({email, id: user.uid, name})
+    return this._userMapper.map({id: user.uid, email: user.email})
   }
 
   async login({email, password} = {}) {
@@ -46,22 +31,8 @@ export default class FireBaseUsersRepository extends UsersRepository {
     const {user} = await firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-    const userDB = (await firebase
-      .database()
-      .ref(`/users/${user.uid}`)
-      .once('value')).val()
-    return this._userMapper.map(userDB)
-  }
-
-  async qr() {
-    const firebase = this._config.get('firebase')
-    const user = firebase.auth().currentUser
     console.log(user)
-    if (!user) {
-      return false
-    }
-    const qrCode = await this._qrGenerator.generateQr(user.id)
-    return this._qrCodeValueObject({qrCode})
+    return this._userMapper.map({id: user.uid, email: user.email})
   }
 
   logout() {

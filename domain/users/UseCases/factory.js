@@ -5,8 +5,6 @@ import CurrentUsersUseCase from './CurrentUsersUseCase'
 import IsPrivilegedUsersUseCase from './IsPrivilegedUsersUseCase'
 import LoginUsersUseCase from './LoginUsersUseCase'
 import LogoutUsersUseCase from './LogoutUsersUseCase'
-import GetBasketUserUseCase from './GetBasketUserUseCase'
-import AddLineBasketUserUseCase from './AddLineBasketUserUseCase'
 
 export default class UsersUseCasesFactory {
   static currentUsersUseCase = ({config}) =>
@@ -32,15 +30,5 @@ export default class UsersUseCasesFactory {
   static isPrivilegedUsersUseCase = ({config}) =>
     new IsPrivilegedUsersUseCase({
       currentUsersService: UsersServicesFactory.currentUsersService({config})
-    })
-
-  static getBasketUserUseCase = ({config}) =>
-    new GetBasketUserUseCase({
-      userService: UsersServicesFactory.getBasketUserService({config})
-    })
-
-  static addLineBasketUserUseCase = ({config}) =>
-    new AddLineBasketUserUseCase({
-      userService: UsersServicesFactory.addLineBasketUserService({config})
     })
 }

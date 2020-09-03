@@ -1,0 +1,198 @@
+{
+  "categories" : {
+    "Category1" : {
+      "category_picture" : "imageUrl",
+      "name" : "Category 1",
+      "products" : {
+        "productoid5" : {
+          "id" : "productoid5",
+          "name" : "product 5",
+          "price" : "5",
+          "product_picture" : "imageUrl"
+        },
+        "productoid6" : {
+          "id" : "productoid6",
+          "name" : "product 6",
+          "price" : "6",
+          "product_picture" : "imageUrl"
+        }
+      }
+    },
+    "Category2" : {
+      "category_picture" : "imageUrl",
+      "name" : "Category 2",
+      "products" : {
+        "productoid4" : {
+          "id" : "productoid4",
+          "name" : "product 4",
+          "price" : "4",
+          "product_picture" : "imageUrl"
+        },
+        "productoid6" : {
+          "id" : "productoid6",
+          "name" : "product 6",
+          "price" : "6",
+          "product_picture" : "imageUrl"
+        }
+      }
+    },
+    "Category3" : {
+      "category_picture" : "imageUrl",
+      "name" : "Category 3",
+      "products" : {
+        "productoid1" : {
+          "id" : "productoid1",
+          "name" : "product 1",
+          "price" : "1",
+          "product_picture" : "imageUrl"
+        },
+        "productoid2" : {
+          "id" : "productoid2",
+          "name" : "product 2",
+          "price" : "2",
+          "product_picture" : "imageUrl"
+        }
+      }
+    }
+  },
+  "products" : {
+    "productoid1" : {
+      "id" : "productoid1",
+      "name" : "product 1",
+      "price" : "1",
+      "product_picture" : "imageUrl"
+    },
+    "productoid2" : {
+      "id" : "productoid2",
+      "name" : "product 2",
+      "price" : "2",
+      "product_picture" : "imageUrl"
+    },
+    "productoid3" : {
+      "id" : "productoid3",
+      "name" : "product 3",
+      "price" : "3",
+      "product_picture" : "imageUrl"
+    },
+    "productoid4" : {
+      "id" : "productoid4",
+      "name" : "product 4",
+      "price" : "4",
+      "product_picture" : "imageUrl"
+    },
+    "productoid5" : {
+      "id" : "productoid5",
+      "name" : "product 5",
+      "price" : "5",
+      "product_picture" : "imageUrl"
+    },
+    "productoid6" : {
+      "id" : "productoid6",
+      "name" : "product 6",
+      "price" : "6",
+      "product_picture" : "imageUrl"
+    }
+  },
+  "sites" : {
+    "Mesa1" : {
+      "id" : "Mesa1",
+      "name" : "Mesa 1"
+    },
+    "Mesa2" : {
+      "id" : "Mesa2",
+      "name" : "Mesa 2"
+    }
+  },
+  "tableAssigns" : {
+    "Mesa1" : {
+      "v0HhwTXD8kW9phCBojKg36ZQzl82" : true
+    }
+  },
+  "users" : {
+    "IWHgVMwsfxYrRwQEZv6iCrXRnVF3" : {
+      "basket" : {
+        "lines" : {
+          "-LULxUfC1Nl6qcPzYuP4" : {
+            "id" : "-LULxUfC1Nl6qcPzYuP4",
+            "product" : {
+              "id" : "productoid1",
+              "name" : "product 1",
+              "price" : "1"
+            },
+            "quantity" : 2,
+            "total" : 2
+          },
+          "-LUkR7V4I1kxgzbV698o" : {
+            "id" : "-LUkR7V4I1kxgzbV698o",
+            "product" : {
+              "id" : "productoid1",
+              "name" : "product 1",
+              "price" : "1"
+            },
+            "quantity" : 2,
+            "total" : 2
+          },
+          "-LUkSB1Fj7f6BWQ5P67p" : {
+            "id" : "-LUkSB1Fj7f6BWQ5P67p",
+            "product" : {
+              "id" : "productoid1",
+              "name" : "product 1",
+              "price" : "1"
+            },
+            "quantity" : 2,
+            "total" : 2
+          },
+          "-LUkSLGDQCpujQWnH8k9" : {
+            "id" : "-LUkSLGDQCpujQWnH8k9",
+            "product" : {
+              "id" : "productoid1",
+              "name" : "product 1",
+              "price" : "1"
+            },
+            "quantity" : 2,
+            "total" : 2
+          },
+          "-LW7WbGdV0zAboneuuh8" : {
+            "id" : "-LW7WbGdV0zAboneuuh8",
+            "product" : {
+              "id" : "productoid1",
+              "name" : "product 1",
+              "price" : "1"
+            },
+            "quantity" : 2,
+            "total" : 2
+          },
+          "-LWBCb1y1Soz4IMvMqsV" : {
+            "id" : "-LWBCb1y1Soz4IMvMqsV",
+            "product" : {
+              "id" : "productoid1",
+              "name" : "product 1",
+              "price" : "1"
+            },
+            "quantity" : 3,
+            "total" : 3
+          },
+          "-LWBEuNkgiJ8PCH1rf1O" : {
+            "id" : "-LWBEuNkgiJ8PCH1rf1O",
+            "product" : {
+              "id" : "productoid1",
+              "name" : "product 1",
+              "price" : "1"
+            },
+            "quantity" : 4,
+            "total" : 4
+          }
+        },
+        "total" : 30
+      },
+      "email" : "info@alexortigosa.es",
+      "id" : "IWHgVMwsfxYrRwQEZv6iCrXRnVF3",
+      "name" : "Alexandre Ortigosa Barragan"
+    },
+    "v0HhwTXD8kW9phCBojKg36ZQzl82" : {
+      "email" : "qwdghj@bvc.es",
+      "profile_picture" : "imageUrl",
+      "username" : "qwdghj@bvc.es"
+    }
+  }
+}

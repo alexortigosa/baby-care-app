@@ -1,15 +1,17 @@
-import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
-import { Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import * as React from 'react'
+import {StyleSheet, Text, View} from 'react-native'
+import {Ionicons} from '@expo/vector-icons'
+import * as WebBrowser from 'expo-web-browser'
+import {RectButton, ScrollView} from 'react-native-gesture-handler'
+import {Button} from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default function LinksScreen() {
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+    >
       <OptionButton
         icon="md-school"
         label="Read the Expo documentation"
@@ -19,7 +21,9 @@ export default function LinksScreen() {
       <OptionButton
         icon="md-compass"
         label="Read the React Navigation documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+        onPress={() =>
+          WebBrowser.openBrowserAsync('https://reactnavigation.org')
+        }
       />
 
       <OptionButton
@@ -29,15 +33,11 @@ export default function LinksScreen() {
         isLastOption
       />
     </ScrollView>
-  );
+  )
 }
 
-function OptionButton({ icon, label, onPress, isLastOption }) {
-  return (   
-    <Button onPress={onPress}
-      title={label}
-    />
-  );
+function OptionButton({icon, label, onPress, isLastOption}) {
+  return <Button onPress={onPress} title={label} />
 }
 
 const styles = StyleSheet.create({
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   optionIconContainer: {
-    marginRight: 12,
+    marginRight: 12
   },
   option: {
     backgroundColor: '#fdfdfd',
@@ -58,14 +58,14 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: 0,
-    borderColor: '#ededed',
+    borderColor: '#ededed'
   },
   lastOption: {
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth
   },
   optionText: {
     fontSize: 15,
     alignSelf: 'flex-start',
-    marginTop: 1,
-  },
-});
+    marginTop: 1
+  }
+})

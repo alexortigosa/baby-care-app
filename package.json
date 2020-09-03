@@ -19,13 +19,16 @@
     "@react-navigation/native": "^5.0.0",
     "@react-navigation/stack": "^5.0.0",
     "@react-navigation/web": "~1.0.0-alpha.9",
+    "@s-ui/decorators": "^3.19.0",
     "@s-ui/domain": "^1.19.0",
+    "@s-ui/lint": "^3.16.0",
     "date-fns": "^2.16.1",
     "expo": "~36.0.0",
     "expo-asset": "~8.0.0",
     "expo-constants": "~8.0.0",
     "expo-font": "~8.0.0",
     "expo-web-browser": "~8.0.0",
+    "firebase": "^7.19.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
@@ -40,5 +43,14 @@
     "babel-preset-expo": "~8.0.0",
     "jest-expo": "~36.0.1"
   },
-  "private": true
+  "private": true,
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
+  "stylelint": {
+    "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
+  }
 }
