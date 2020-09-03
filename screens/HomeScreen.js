@@ -1,19 +1,18 @@
-import * as React from 'react'
-import {
-  Image,
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native'
+import React, {useState} from 'react'
+import {Image, Platform, StyleSheet, Text, View} from 'react-native'
 import {ScrollView} from 'react-native-gesture-handler'
 import * as WebBrowser from 'expo-web-browser'
-import {Button, IFocusable} from '@fluentui/react-native'
+import {Button, Overlay} from 'react-native-elements'
 
 import {MonoText} from '../components/StyledText'
 
 export default function HomeScreen() {
+  const [visible, setVisible] = useState(false)
+
+  const toggleOverlay = () => {
+    setVisible(!visible)
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -53,6 +52,9 @@ export default function HomeScreen() {
           </View>
         </View>
       </ScrollView>
+      <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
+        <Text>Hello from Overlay!</Text>
+      </Overlay>
     </View>
   )
 }

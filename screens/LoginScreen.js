@@ -2,13 +2,7 @@
 import React, {useState} from 'react'
 import {View, ActivityIndicator} from 'react-native'
 // import {RectButton, ScrollView} from 'react-native-gesture-handler'
-import {
-  Button,
-  Text,
-  Input,
-  FormValidationMessage,
-  Divider
-} from 'react-native-elements'
+import {Button, Input, Divider} from 'react-native-elements'
 import _ from 'lodash'
 import domain from '../instance'
 
