@@ -1,6 +1,6 @@
 import { UseCase } from "@s-ui/domain";
 
-export default class GetCacaListByDate extends UseCase{
+export default class GetCacaListByDateUseCase extends UseCase{
     constructor({cacaRepository,requestFactory}){
         super()
         this._cacaRepository = cacaRepository
