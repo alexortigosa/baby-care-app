@@ -1,39 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import TabBarIcon from '../components/TabBarIcon'
 import HomeScreen from '../screens/HomeScreen'
 import TomasScreen from '../screens/TomasScreen'
 import LoginScreen from '../screens/LoginScreen'
-import domain from '../instance'
 
 const BottomTab = createBottomTabNavigator()
-const INITIAL_ROUTE_NAME = 'Home'
 
-const INITIAL_ROUTE_NAME_LOGIN = 'Login'
-
-export default function BottomTabNavigator({navigation, route}) {
-  const [isLogged, setIsLogged] = useState(false)
-
-  useEffect(() => {
-    domain
-      .get('current_users_use_case')
-      .execute()
-      .then(user => {
-        setIsLogged(true)
-      })
-      .catch(error => {
-        console.log({message: 'error', error})
-        setIsLogged(false)
-      })
-  })
+export default function BottomTabNavigator({navigation, route, user}) {
   // Set the header title on the parent stack navigator depending on the
   // currently active tab. Learn more in the documentation:
   // https://reactnavigation.org/docs/en/screen-options-resolution.html
-  navigation.setOptions({headerTitle: getHeaderTitle(route)})
+  navigation.setOptions({headerTitle: getHeaderTitle(route, user)})
 
   function renderNoLogged() {
     return (
-      <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME_LOGIN}>
+      <>
         <BottomTab.Screen
           name="Login"
           component={LoginScreen}
@@ -44,13 +26,13 @@ export default function BottomTabNavigator({navigation, route}) {
             )
           }}
         />
-      </BottomTab.Navigator>
+      </>
     )
   }
 
   function renderLogged() {
     return (
-      <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+      <>
         <BottomTab.Screen
           name="Home"
           component={HomeScreen}
@@ -91,16 +73,21 @@ export default function BottomTabNavigator({navigation, route}) {
             )
           }}
         />
-      </BottomTab.Navigator>
+      </>
     )
   }
-
-  return isLogged ? renderLogged() : renderNoLogged()
+  console.log({message: 'BottomTabNavigator', user})
+  return (
+    <BottomTab.Navigator>
+      {user && user !== null ? renderLogged() : renderNoLogged()}
+    </BottomTab.Navigator>
+  )
 }
 
-function getHeaderTitle(route) {
+function getHeaderTitle(route, isLogged) {
+  console.log({message: 'getHeaderTitle', route})
   const routeName =
-    route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME
+    route.state?.routes[route.state.index]?.name ?? isLogged ? 'Home' : 'Login'
 
   switch (routeName) {
     case 'Home':

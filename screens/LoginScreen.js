@@ -4,7 +4,8 @@ import {View, ActivityIndicator} from 'react-native'
 // import {RectButton, ScrollView} from 'react-native-gesture-handler'
 import {Button, Input, Divider} from 'react-native-elements'
 import _ from 'lodash'
-import domain from '../instance'
+
+import {AuthContext} from '../contexts/AuthContext'
 
 export default function LoginScreen({navigation, route}) {
   // const [user, setUser] = useState('')
@@ -12,24 +13,18 @@ export default function LoginScreen({navigation, route}) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(undefined)
   const [loading, setLoading] = useState(undefined)
-
+  const {signIn} = React.useContext(AuthContext)
   function goToRegister() {
     this.props.navigation.navigate('Register') //eslint-disable-line
   }
 
   function login() {
     console.log('login init')
-    domain
-      .get('login_users_use_case')
-      .execute({email, password})
-      .then(user => {
-        console.log('login success')
-        navigation.navigate('Home')
-      })
-      .catch(error => {
-        console.log({message: 'error', error})
-        setError(error.message)
-      })
+    try {
+      signIn({email, password})
+    } catch (error) {
+      setError(error.message)
+    }
   }
 
   function renderButton() {
@@ -57,7 +52,6 @@ export default function LoginScreen({navigation, route}) {
         secureTextEntry
         onChangeText={value => setPassword(value)}
         errorMessage={error}
-        renderErrorMessage={error}
       />
       {renderButton()}
       <Divider style={{height: 40, backgroundColor: 'transparent'}} />

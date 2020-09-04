@@ -1,9 +1,8 @@
 {
   "expo": {
-    "name": "Tab Navigation Template",
+    "name": "Baby Care App",
     "slug": "baby-care",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
@@ -26,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "baby care app. Manage pipi, popo and feeds",
+    "githubUrl": "https://github.com/alexortigosa/baby-care-app"
   }
 }
