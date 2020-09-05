@@ -7,7 +7,7 @@ import UsersServicesFactory from '../../users/Services/factory'
 export default class CacaUseCasesFactory {
   static addCacaUseCase = ({config}) =>
     new AddCacaUseCase({
-      cacaRepository: CacaRepositoryFactory.localMemoryCacaRepository({config}),
+      cacaRepository: CacaRepositoryFactory.fireBaseCacaRepository({config}),
       requestFactory: CacaRequestsFactory.addCacaRequest,
       currentUserService: UsersServicesFactory.currentUsersService({config})
     })

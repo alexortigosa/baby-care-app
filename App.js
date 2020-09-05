@@ -22,7 +22,6 @@ export default function App(props) {
 
   const [state, dispatch] = React.useReducer(
     (prevState, action) => {
-      console.log({message: 'useReducer', prevState, action})
       switch (action.type) {
         case 'RESTORE_TOKEN':
           return {
@@ -93,7 +92,6 @@ export default function App(props) {
         const user = await domain
           .get('login_users_use_case')
           .execute({email, password})
-        console.log({message: 'authContext', user, email, password})
         dispatch({type: 'SIGN_IN', user})
       },
       signOut: () => dispatch({type: 'SIGN_OUT'}),
@@ -111,7 +109,6 @@ export default function App(props) {
     }),
     []
   )
-  console.log({message: 'App', state})
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null
   } else {

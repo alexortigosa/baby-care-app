@@ -76,7 +76,6 @@ export default function BottomTabNavigator({navigation, route, user}) {
       </>
     )
   }
-  console.log({message: 'BottomTabNavigator', user})
   return (
     <BottomTab.Navigator>
       {user && user !== null ? renderLogged() : renderNoLogged()}
@@ -85,7 +84,6 @@ export default function BottomTabNavigator({navigation, route, user}) {
 }
 
 function getHeaderTitle(route, isLogged) {
-  console.log({message: 'getHeaderTitle', route})
   const routeName =
     route.state?.routes[route.state.index]?.name ?? isLogged ? 'Home' : 'Login'
 

@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import {Image, Platform, StyleSheet, Text, View} from 'react-native'
+import {Image, Platform, StyleSheet, Text, View, Alert} from 'react-native'
 import {ScrollView} from 'react-native-gesture-handler'
 import {Button, Divider} from 'react-native-elements'
 import Modal from 'react-native-modal'
 import {MonoText} from '../components/StyledText'
+import domain from '../instance'
 
 export default function HomeScreen() {
   const [visible, setVisible] = useState(false)
@@ -18,16 +19,18 @@ export default function HomeScreen() {
     toggleOverlay()
   }
 
-  const onAddCaca = () => {
+  const onAddCaca = async () => {
     toggleOverlay()
-    setSendFunction(sendCaca)
+    // setSendFunction(sendCaca)
+    console.log({message: 'onAddCaca', date: Date.now()})
+    const caca = await domain
+      .get('add_caca_use_case')
+      .execute({date: Date.now()})
+    Alert.alert('Aviso de caca', 'Caca añadida')
   }
 
   return (
     <View style={styles.container}>
-      <Modal isVisible={false}>
-        <Text>Prueba</Text>
-      </Modal>
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
