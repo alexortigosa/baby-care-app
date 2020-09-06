@@ -14,6 +14,11 @@
   "dependencies": {
     "@expo/vector-icons": "^10.0.0",
     "@fluentui/react-native": "^0.15.90",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-native-fontawesome": "^0.2.5",
     "@react-native-community/datetimepicker": "2.4.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.0.0",
@@ -39,6 +44,7 @@
     "react-native-modal": "^11.5.6",
     "react-native-safe-area-context": "~3.0.7",
     "react-native-screens": "~2.9.0",
+    "react-native-svg": "^12.1.0",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {

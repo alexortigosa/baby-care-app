@@ -14,7 +14,8 @@ export default class CacaUseCasesFactory {
 
   static getCacaListByDateUseCase = ({config}) =>
     new GetCacaListByDateUseCase({
-      cacaRepository: CacaRepositoryFactory.localMemoryCacaRepository({config}),
-      requestFactory: CacaRequestsFactory.getCacaListByDateRequest
+      cacaRepository: CacaRepositoryFactory.fireBaseCacaRepository({config}),
+      requestFactory: CacaRequestsFactory.getCacaListByDateRequest,
+      currentUserService: UsersServicesFactory.currentUsersService({config})
     })
 }

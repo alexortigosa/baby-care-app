@@ -16,6 +16,7 @@ export default class CacaRepositoryFactory {
       entityFactory: CacaEntityFactory.cacaEntity,
       listValueObjectFactory: CacaValueObjectsFactory.cacaListValueObject,
       inputMapper: CacaMappersFactory.addCacaParamsToEntityMapper(),
-      config
+      config,
+      responseMapper: CacaMappersFactory.fireBaseResponseToCacaListValueObjectMapper()
     })
 }

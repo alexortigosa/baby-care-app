@@ -1,5 +1,5 @@
-import CacaListValueObject from "./CacaListValueObject";
+import CacaListValueObject from './CacaListValueObject'
 
-export default class CacaValueObjectsFactory{
-    static cacaListValueObject = ({list}) => new CacaListValueObject({list})
+export default class CacaValueObjectsFactory {
+  static cacaListValueObject = ({list}) => new CacaListValueObject({list})
 }

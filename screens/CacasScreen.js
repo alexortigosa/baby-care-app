@@ -1,71 +1,75 @@
 import * as React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
-import {Ionicons} from '@expo/vector-icons'
-import * as WebBrowser from 'expo-web-browser'
-import {RectButton, ScrollView} from 'react-native-gesture-handler'
-import {Button} from 'react-native-elements'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  FlatList,
+  StatusBar
+} from 'react-native'
+import {format} from 'date-fns'
 
-export default function LinksScreen() {
-  return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.contentContainer}
-    >
-      <OptionButton
-        icon="md-school"
-        label="Read the Expo documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
+import domain from '../instance'
 
-      <OptionButton
-        icon="md-compass"
-        label="Read the React Navigation documentation"
-        onPress={() =>
-          WebBrowser.openBrowserAsync('https://reactnavigation.org')
-        }
-      />
+const Item = ({title}) => (
+  <View style={styles.item}>
+    <FontAwesomeIcon icon="poo" color="yellow" size={32} />
+    <Text style={styles.title}>{title}</Text>
+  </View>
+)
 
-      <OptionButton
-        icon="ios-chatboxes"
-        label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
-        isLastOption
-      />
-    </ScrollView>
+export default function CacasScreen() {
+  const [cacasList, setCacasList] = React.useState([])
+  const [date, setDate] = React.useState(Date.now())
+  React.useEffect(() => {
+    async function getCacas() {
+      const {list} = await domain.get('get_caca_list_by_date').execute({date})
+      setCacasList(list)
+    }
+    getCacas()
+  }, [date])
+
+  const renderItem = ({item}) => (
+    <Item title={format(item.date, 'dd-MM-yyyy HH:mm')} />
   )
-}
 
-function OptionButton({icon, label, onPress, isLastOption}) {
-  return <Button onPress={onPress} title={label} />
+  return (
+    <View style={styles.container}>
+      <View>
+        <Text>Donde debería estar el selector de dias</Text>
+      </View>
+      <View>
+        <SafeAreaView style={styles.container}>
+          <FlatList
+            data={cacasList}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+          />
+        </SafeAreaView>
+      </View>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fafafa'
+    marginTop: StatusBar.currentHeight || 0
   },
-  contentContainer: {
-    paddingTop: 15,
-    justifyContent: 'space-between'
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    fontSize: 32
   },
-  optionIconContainer: {
-    marginRight: 12
+  title: {
+    fontSize: 32
   },
-  option: {
-    backgroundColor: '#fdfdfd',
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: 0,
-    borderColor: '#ededed'
-  },
-  lastOption: {
-    borderBottomWidth: StyleSheet.hairlineWidth
-  },
-  optionText: {
-    fontSize: 15,
-    alignSelf: 'flex-start',
-    marginTop: 1
+  icon: {
+    fontSize: 32
   }
 })

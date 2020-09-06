@@ -27,6 +27,9 @@
       "supportsTablet": true
     },
     "description": "baby care app. Manage pipi, popo and feeds",
-    "githubUrl": "https://github.com/alexortigosa/baby-care-app"
+    "githubUrl": "https://github.com/alexortigosa/baby-care-app",
+    "android": {
+      "package": "com.alexandre.ortigosa.babycare"
+    }
   }
 }

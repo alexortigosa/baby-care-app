@@ -4,6 +4,7 @@ import TabBarIcon from '../components/TabBarIcon'
 import HomeScreen from '../screens/HomeScreen'
 import TomasScreen from '../screens/TomasScreen'
 import LoginScreen from '../screens/LoginScreen'
+import CacasScreen from '../screens/CacasScreen'
 
 const BottomTab = createBottomTabNavigator()
 
@@ -55,7 +56,7 @@ export default function BottomTabNavigator({navigation, route, user}) {
         />
         <BottomTab.Screen
           name="Cacas"
-          component={TomasScreen}
+          component={CacasScreen}
           options={{
             title: 'Cacas',
             tabBarIcon: ({focused}) => (
