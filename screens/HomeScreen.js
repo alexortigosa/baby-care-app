@@ -32,11 +32,15 @@ export default function HomeScreen() {
   const onAddToma = async () => {
     toggleOverlay()
     // setSendFunction(sendCaca)
-    console.log({message: 'onAddCaca', date: Date.now()})
+    const isRigth = true
+    console.log({message: 'onAddToma', date: Date.now()})
     const caca = await domain
-      .get('add_caca_use_case')
-      .execute({date: Date.now()})
-    Alert.alert('Aviso de caca', 'Caca añadida')
+      .get('add_toma_use_case')
+      .execute({date: Date.now(), isRigth})
+    Alert.alert(
+      'Aviso de Toma',
+      `Toma  ${isRigth ? 'derecha' : 'izquierda'} añadida`
+    )
   }
 
   return (
@@ -68,7 +72,7 @@ export default function HomeScreen() {
 
         <View style={styles.getStartedContainer}>
           <View>
-            <Button title="Añadir Toma" />
+            <Button title="Añadir Toma" onPress={onAddToma} />
           </View>
           <Divider style={{height: 40, backgroundColor: 'transparent'}} />
           <View>
