@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
 import React, {useState} from 'react'
-import {View, ActivityIndicator} from 'react-native'
+import {View, ActivityIndicator, TextInput, Text} from 'react-native'
 // import {RectButton, ScrollView} from 'react-native-gesture-handler'
 import {Button, Input, Divider} from 'react-native-elements'
+
 import _ from 'lodash'
 
 import {AuthContext} from '../contexts/AuthContext'
@@ -39,11 +40,13 @@ export default function LoginScreen({navigation, route}) {
 
   return (
     <View>
-      <Input
-        label="Email"
-        placeholder="something@something.es"
+      <Text>Email *</Text>
+      <TextInput
+        autoCapitalize="none"
+        autoCompleteType="email"
+        placeholder="test@someprovider.es"
+        onChangeText={setEmail}
         value={email}
-        onChangeText={value => setEmail(value)}
       />
       <Input
         label="Password"
@@ -55,7 +58,6 @@ export default function LoginScreen({navigation, route}) {
       />
       {renderButton()}
       <Divider style={{height: 40, backgroundColor: 'transparent'}} />
-      <Button small title="Registro" onPress={goToRegister} />
     </View>
   )
 }

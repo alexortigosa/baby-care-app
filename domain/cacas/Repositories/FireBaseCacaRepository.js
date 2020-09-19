@@ -31,7 +31,6 @@ export default class FireBaseCacaRepository extends CacaRepository {
     const refsManager = this._config.get('refsManager')
     const categoriesRef = refsManager.ref({path: `/cacas/${userId}`})
     const cacas = (await categoriesRef.once('value')).val() || {}
-    console.log({cacas, message: 'getCacasByDate'})
     return this._responseMapper.map(cacas)
   }
 }

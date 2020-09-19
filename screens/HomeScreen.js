@@ -59,14 +59,14 @@ export default function HomeScreen() {
         <View style={styles.getStartedContainer}>
           <View>
             <Button title="Añadir Toma" />
-            <Divider style={{height: 40, backgroundColor: 'transparent'}} />
           </View>
+          <Divider style={{height: 40, backgroundColor: 'transparent'}} />
           <View>
-            <Button title="Añadir Caca" onClick={onAddCaca} />
-            <Divider style={{height: 40, backgroundColor: 'transparent'}} />
+            <Button title="Añadir Caca" onPress={onAddCaca} />
           </View>
+          <Divider style={{height: 40, backgroundColor: 'transparent'}} />
           <View>
-            <Button title="Añadir Pipi" onClick={() => {}} />
+            <Button title="Añadir Pipi" onPress={() => {}} />
           </View>
         </View>
       </ScrollView>
