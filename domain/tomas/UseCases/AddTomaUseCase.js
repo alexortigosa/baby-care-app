@@ -8,8 +8,8 @@ export default class AddTomaUseCase extends UseCase {
     this._currentUserService = currentUserService
   }
 
-  async execute({date}) {
-    const request = this._requestFactory({date})
+  async execute({date, isRigth}) {
+    const request = this._requestFactory({date, isRigth})
     const user = await this._currentUserService.execute()
     const toma = await this._tomaRepository.addToma(
       request.getDate(),

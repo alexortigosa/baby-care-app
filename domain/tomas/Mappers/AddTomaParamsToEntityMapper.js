@@ -6,5 +6,5 @@ export default class AddTomaParamsToEntityMapper extends Mapper {
     this._entityFactory = entityFactory
   }
 
-  map = ({date, id}) => this._entityFactory({id, date})
+  map = ({date, id, isRigth}) => this._entityFactory({id, date, isRigth})
 }

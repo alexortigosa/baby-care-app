@@ -16,7 +16,7 @@ export default class FireBaseTomaRepository extends TomaRepository {
     this._responseMapper = responseMapper
   }
 
-  async addToma(date, userId) {
+  async addToma(date, userId, isRigth) {
     const refsManager = this._config.get('refsManager')
     const linesRef = refsManager.ref({
       path: `/tomas/${userId}`

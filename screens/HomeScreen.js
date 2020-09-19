@@ -29,6 +29,16 @@ export default function HomeScreen() {
     Alert.alert('Aviso de caca', 'Caca añadida')
   }
 
+  const onAddToma = async () => {
+    toggleOverlay()
+    // setSendFunction(sendCaca)
+    console.log({message: 'onAddCaca', date: Date.now()})
+    const caca = await domain
+      .get('add_caca_use_case')
+      .execute({date: Date.now()})
+    Alert.alert('Aviso de caca', 'Caca añadida')
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView
