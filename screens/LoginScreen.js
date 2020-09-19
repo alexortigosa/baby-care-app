@@ -47,14 +47,18 @@ export default function LoginScreen({navigation, route}) {
         placeholder="test@someprovider.es"
         onChangeText={setEmail}
         value={email}
+        textContentType="emailAddress"
       />
-      <Input
-        label="Password"
+      <Divider style={{height: 40, backgroundColor: 'transparent'}} />
+      <Text>Password *</Text>
+      <TextInput
+        autoCapitalize="none"
+        autoCompleteType="password"
         placeholder="password"
-        value={password}
         secureTextEntry
-        onChangeText={value => setPassword(value)}
-        errorMessage={error}
+        onChangeText={setPassword}
+        value={password}
+        textContentType="password"
       />
       {renderButton()}
       <Divider style={{height: 40, backgroundColor: 'transparent'}} />
