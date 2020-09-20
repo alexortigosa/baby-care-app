@@ -17,12 +17,13 @@ export default class FireBaseTomaRepository extends TomaRepository {
   }
 
   async addToma(date, userId, isRigth) {
+    console.log({message: 'add toma', date, userId, isRigth})
     const refsManager = this._config.get('refsManager')
     const linesRef = refsManager.ref({
       path: `/tomas/${userId}`
     })
     const newLineRef = linesRef.push()
-    const line = this._inputMapper.map({date, id: newLineRef.key})
+    const line = this._inputMapper.map({date, id: newLineRef.key, isRigth})
     await newLineRef.set(line.toJSON())
     return line
   }
@@ -33,4 +34,6 @@ export default class FireBaseTomaRepository extends TomaRepository {
     const tomas = (await categoriesRef.once('value')).val() || {}
     return this._responseMapper.map(tomas)
   }
+
+  async getNextSideTomaUseCase() {}
 }

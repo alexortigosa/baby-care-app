@@ -43,22 +43,18 @@ export default function LoginScreen({navigation, route}) {
       <Text>Email *</Text>
       <TextInput
         autoCapitalize="none"
-        autoCompleteType="email"
         placeholder="test@someprovider.es"
         onChangeText={setEmail}
         value={email}
-        textContentType="emailAddress"
       />
       <Divider style={{height: 40, backgroundColor: 'transparent'}} />
       <Text>Password *</Text>
       <TextInput
         autoCapitalize="none"
-        autoCompleteType="password"
         placeholder="password"
         secureTextEntry
         onChangeText={setPassword}
         value={password}
-        textContentType="password"
       />
       {renderButton()}
       <Divider style={{height: 40, backgroundColor: 'transparent'}} />

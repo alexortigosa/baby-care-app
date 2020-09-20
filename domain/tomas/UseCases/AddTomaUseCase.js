@@ -13,7 +13,8 @@ export default class AddTomaUseCase extends UseCase {
     const user = await this._currentUserService.execute()
     const toma = await this._tomaRepository.addToma(
       request.getDate(),
-      user.id()
+      user.id(),
+      request.getIsRigth()
     )
     return toma.toJSON()
   }
