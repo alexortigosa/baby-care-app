@@ -5,7 +5,7 @@ import * as Font from 'expo-font'
 import {Ionicons} from '@expo/vector-icons'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {fab} from '@fortawesome/free-brands-svg-icons'
-import {faPoo} from '@fortawesome/free-solid-svg-icons'
+import {faPoo, faPizzaSlice} from '@fortawesome/free-solid-svg-icons'
 
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
@@ -70,7 +70,7 @@ export default function App(props) {
           'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf')
         })
 
-        library.add(fab, faPoo)
+        library.add(fab, faPoo, faPizzaSlice)
 
         user = await domain.get('current_users_use_case').execute()
         if (user) {

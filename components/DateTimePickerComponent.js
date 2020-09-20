@@ -13,7 +13,7 @@ export default function DateTimePickerComponent({sendFunction}) {
   }
 
   const onSend = () => {
-    setIsDateOrTime(!isDateOrTime)
+    // setIsDateOrTime(!isDateOrTime)
     sendFunction(date)
   }
 
@@ -28,7 +28,7 @@ export default function DateTimePickerComponent({sendFunction}) {
           onChange={onChange}
         />
       )}
-      {!isDateOrTime && (
+      {/*! isDateOrTime && (
         <DateTimePicker
           testID="datePicker"
           value={date}
@@ -37,9 +37,9 @@ export default function DateTimePickerComponent({sendFunction}) {
           display="default"
           onChange={onChange}
         />
-      )}
+      ) */}
       <View>
-        <Button onPress={onSend} title="Enviar" />
+        <Button onPress={onSend} title="Filtrar" />
       </View>
     </View>
   )

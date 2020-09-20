@@ -9,8 +9,8 @@ import domain from '../instance'
 
 const Item = ({title, isRigth}) => (
   <View style={styles.item}>
-    <FontAwesomeIcon icon="syringe" color="yellow" size={32} />
-    <Text style={styles.title}>{title}</Text>
+    <FontAwesomeIcon icon="pizza-slice" color="yellow" />
+    <Text> {title}</Text>
     <Text> Toma {isRigth ? 'Derecha' : 'Izquierda'}</Text>
   </View>
 )
